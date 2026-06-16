@@ -6,6 +6,7 @@ import software.amazon.awscdk.RemovalPolicy;
 import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
 import software.amazon.awscdk.services.s3.Bucket;
+import software.amazon.awscdk.services.s3.BucketEncryption;
 import software.constructs.Construct;
 
 public class S3Stack extends Stack {
@@ -18,10 +19,11 @@ public class S3Stack extends Stack {
         super(scope, id, props);
 
         Bucket bucket = Bucket.Builder.create(this, "MyCdkBucket")
-                .bucketName("sunny-cdk-test-bucket-03")
+                .bucketName("sunny-cdk-test-bucket-04")
                 .versioned(true)
                 .removalPolicy(RemovalPolicy.DESTROY)
                 .autoDeleteObjects(true)
+                .encryption(BucketEncryption.S3_MANAGED)
                 .build();
 
         new CfnOutput(this, "S3BucketARN", CfnOutputProps.builder()

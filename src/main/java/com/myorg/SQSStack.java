@@ -20,7 +20,7 @@ public class SQSStack extends Stack {
         String queueName = (String) this.getNode().tryGetContext("queueName");
         Number queueRetentionDays = (Number) this.getNode().tryGetContext("queueRetentionDays");
 
-        Queue queue = Queue.Builder.create(this, "MyCdkQueue")
+        Queue queue = Queue.Builder.create(this, "MyCdkQueue2")
                 .queueName(queueName)
                 .retentionPeriod(Duration.days(queueRetentionDays.intValue()))
                 .visibilityTimeout(Duration.seconds(500))
