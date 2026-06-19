@@ -23,7 +23,7 @@ public class S3Stack extends Stack {
                 .versioned(true)
                 .removalPolicy(RemovalPolicy.DESTROY)
                 .autoDeleteObjects(true)
-                .encryption(BucketEncryption.S3_MANAGED)
+//                .encryption(BucketEncryption.S3_MANAGED)
                 .build();
 
         new CfnOutput(this, "S3BucketARN", CfnOutputProps.builder()
